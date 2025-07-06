@@ -44,6 +44,27 @@ document.addEventListener("click", () => {
     }
 });
 
+document.getElementById('logout-btn').addEventListener('click', async function () {
+    localStorage.clear();
+    sessionStorage.clear();
+    document.cookie.split(";").forEach((c) => {
+        document.cookie = c
+            .replace(/^ +/, "")
+            .replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/");
+    });
+    if (window.indexedDB && indexedDB.databases) {
+        const dbs = await indexedDB.databases();
+        dbs.forEach(db => indexedDB.deleteDatabase(db.name));
+    }
+    if ('caches' in window) {
+        const names = await caches.keys();
+        for (const name of names) {
+            await caches.delete(name);
+        }
+    }
+    window.location.replace("index.html");
+});
+
 function fetchData() {
     fetch(url)
         .then((res) => res.json())
