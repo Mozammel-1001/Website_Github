@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Health Monitoring System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .font-poppins {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Alert overlay */
+        #alertOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 50;
+        }
+
+        #alertBox {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            background: white;
+            padding: 80px 200px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: blink 1s infinite;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                background-color: #fff;
+            }
+
+            50% {
+                background-color: #ffdddd;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="font-poppins bg-[#F4F7FF]">
+    <header>
+        <nav class="text-center items-center w-10/12 mx-auto mt-24 bg-white p-10 rounded-2xl">
+            <h3 class="text-4xl text-[#00303C] font-bold">
+                Smart Health Monitoring System
+            </h3>
+        </nav>
+    </header>
+
+    <main class="w-10/12 mx-auto mt-14 grid grid-cols-3 gap-6 mb-24">
+        <section class="bg-white px-5 py-6 rounded-2xl col-span-2">
+            <div class="px-5 py-3 rounded-xl mb-8"
+                style="background: linear-gradient(to right, #3752FD, #6C7FFA, #9BA8F8)" id="discover">
+                <p class="font-medium text-4xl text-white text-center py-4">
+                    Patient Information
+                </p>
+            </div>
+
+            <hr class="border-dashed border-[#3752fd80]" />
+            <div class="bg-[#F4F7FF] p-8 rounded-2xl mt-8">
+                <p class="font-medium text-xl text-[#00303C] mb-2">
+                    Patient ID: 110001
+                </p>
+                <p class="font-medium text-xl text-[#00303C] mb-2">
+                    Name: MD SHABBIR HASSAN RAHAD
+                </p>
+                <p class="font-medium text-xl text-[#00303C] mb-2">Age: 23</p>
+                <p class="font-medium text-xl text-[#00303C] mb-2">Weight: 70kg</p>
+                <p class="font-medium text-xl text-[#00303C] mb-2">Gender: Male</p>
+                <p class="font-medium text-xl text-[#00303C]">Diseases: Cold & Fever</p>
+            </div>
+        </section>
+
+        <section class="bg-white px-5 py-6 rounded-2xl">
+            <p class="mb-6 text-2xl text-center font-bold">Patient Health Status</p>
+            <hr class="border-dashed border-[#3752fd80]" />
+            <div class="flex gap-2 bg-[#F4F7FF] p-6 rounded-2xl mt-8" id="temperatureBox">
+                <div><img src="medical.png" alt="Thermometer" style="width: 30px;"></div>
+                <p class="font-medium text-xl text-[#00303C]">Temperature: Loading...</p>
+            </div>
+            <div class="flex gap-2 bg-[#F4F7FF] p-6 rounded-2xl mt-4 items-center" id="bpmBox">
+                <div><img src="heart-rate.png" alt="Heart Rate" style="width: 30px;"></div>
+                <p class="font-medium text-xl text-[#00303C]">BPM: Loading...</p>
+            </div>
+            <div class="bg-[#F4F7FF] p-6 rounded-2xl mt-4" id="motionBox">
+                <p class="font-medium text-xl text-[#00303C]">Motion Status: Loading...</p>
+            </div>
+            <div class="bg-[#F4F7FF] p-6 rounded-2xl mt-4" id="bpmStatusBox">
+                <p class="font-medium text-xl text-[#00303C]">BPM Status: Loading...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Alert Card -->
+    <div id="alertOverlay"></div>
+    <div id="alertBox">
+        <h2 class="text-xl font-bold text-red-600 mb-3">🚨 Alert!</h2>
+        <p id="alertMsg" class="text-[#00303C] whitespace-pre-line mb-4"></p>
+        <button id="closeBtn" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-800">
+            Close
+        </button>
+    </div>
+
+    <script src="C_T.js"></script>
+</body>
+
+</html>
