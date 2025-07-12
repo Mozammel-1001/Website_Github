@@ -222,4 +222,4 @@ document.getElementById("closeBtn").addEventListener("click", () => {
 });
 
 fetchData();
-setInterval(fetchData, 30000);
+setInterval(fetchData, 35000);
