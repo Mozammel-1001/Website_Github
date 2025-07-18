@@ -8,12 +8,10 @@ const apiKey = "C3Z67GLGQ4JXNFSB"; // leave blank if public
 const url = `https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${apiKey}`;
 
 const thresholds = {
-    lowTemp: 34, // Celsius
+    lowTemp: 35, // Celsius
     highTemp: 40, // Celsius
     lowBPM: 60,
     highBPM: 100,
-    motion: 1,
-    bpmStatus: 1,
 };
 
 let alertActive = false;
@@ -95,7 +93,7 @@ function fetchData() {
             document.getElementById("motionBox").innerHTML =
                 `<p class="font-medium text-xl text-[#00303C]">Motion Status: ${motion === 1 ? "Detected" : "None"}</p>`;
             document.getElementById("bpmStatusBox").innerHTML =
-                `<p class="font-medium text-xl text-[#00303C]">BPM Status: ${bpmStatus === 1 ? "Normal" : "Abnormal"}</p>`;
+                `<p class="font-medium text-xl text-[#00303C]">Pulse Sensor: ${bpmStatus === 1 ? "Attached" : "Detached"}</p>`;
 
             let msg = "";
             if (temp >= thresholds.highTemp) {
