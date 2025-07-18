@@ -129,7 +129,7 @@ function fetchData() {
             }
 
             if (motion === 1) {
-                msg += `Motion Detected\n`;
+                msg += `The patient needs something. Please check on him.\n`;
                 motionAlert++;
             }
             else {
@@ -137,7 +137,7 @@ function fetchData() {
             }
 
             if (bpmStatus === 0) {
-                msg += `Check the patient. the pulse sensor may be detached.\n`;
+                msg += `Check the patient. The pulse sensor may be detached.\n`;
                 BPMAlert++;
             }
             else {
